@@ -1,0 +1,288 @@
+﻿using MySqlConnector;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WinFormsApp1.DAL;
+
+namespace WinFormsApp1
+{
+    public partial class EditStudent : Form
+    {
+        string connString = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
+
+        string studentId;
+        public EditStudent(string studentId)
+        {
+            InitializeComponent();
+            this.studentId = studentId;
+            this.Load += Editstudent_load;
+        }
+
+        private async void UpdateStudent()
+        {
+            string gender = rdoMale.Checked ? "M" : "F";
+
+            StudentDal studentDal = new StudentDal();
+
+            bool updated = await studentDal.UpdateAsync(
+                studentId,
+                txtAdmissionNo.Text,
+                txtFirstName.Text,
+                txtLastName.Text,
+                gender,
+                txtNIC.Text,
+                txtBirthNo.Text,
+                txtTel.Text,
+                txtAddress.Text,
+                cmbGrade.SelectedValue.ToString(),
+                txtHouse.Text,
+                cmbMedium.Text,
+                txtFamily.Text,
+                dtpDOB.Value,
+                dtpAdmission.Value
+            );
+
+            if (updated)
+            {
+                MessageBox.Show(
+                    "Student updated successfully.",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                this.Close();
+            }
+        }
+
+        private void Editstudent_load(object sender, EventArgs e)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connString);
+
+            try
+            {
+                conn.Open();
+
+                // Load Grades
+                string gradeQuery = "SELECT id, grade_name FROM grades";
+
+                MySqlDataAdapter gradeAdapter =
+                    new MySqlDataAdapter(gradeQuery, conn);
+
+                DataTable gradeTable = new DataTable();
+
+                gradeAdapter.Fill(gradeTable);
+
+                cmbGrade.DataSource = gradeTable;
+                cmbGrade.DisplayMember = "grade_name";
+                cmbGrade.ValueMember = "id";
+
+
+                // Load Student + House + Family
+                MySqlCommand cmd = new MySqlCommand(@"
+            SELECT
+                students.id,
+                students.admission_number,
+                students.first_name,
+                students.last_name,
+                students.gender,
+                CASE WHEN students.date_of_birth = '0000-00-00' THEN NULL ELSE students.date_of_birth END AS date_of_birth,
+                students.nic_number,
+                students.birth_certificate_number,
+                students.tele_number,
+                students.per_address,
+                students.grade_id,
+                students.house_id,
+                students.medium,
+                students.family_id,
+                CASE WHEN students.date_of_admission = '0000-00-00' THEN NULL ELSE students.date_of_admission END AS date_of_admission,
+                houses.house_name,
+                families.mobile_number
+            FROM students
+
+            LEFT JOIN houses
+                ON students.house_id = houses.id
+
+            LEFT JOIN families
+                ON students.family_id = families.id
+
+            WHERE students.id = @id
+        ", conn);
+
+                cmd.Parameters.AddWithValue("@id", studentId);
+
+                MySqlDataAdapter da =
+                    new MySqlDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show(
+                        "Student not found.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    this.Close();
+                    return;
+                }
+
+                DataRow dr = dt.Rows[0];
+
+
+                // ---------------- Student Details ----------------
+
+                txtFirstName.Text =
+                    dr["first_name"].ToString();
+
+                txtLastName.Text =
+                    dr["last_name"].ToString();
+
+                txtAddress.Text =
+                    dr["per_address"].ToString();
+
+                txtAdmissionNo.Text =
+                    dr["admission_number"].ToString();
+
+                txtNIC.Text =
+                    dr["nic_number"].ToString();
+
+                txtTel.Text =
+                    dr["tele_number"].ToString();
+
+                txtBirthNo.Text =
+                    dr["birth_certificate_number"].ToString();
+
+
+                // ---------------- Gender ----------------
+
+                string gender =
+                    dr["gender"].ToString();
+
+                rdoMale.Checked = gender == "M";
+                rdoFemale.Checked = gender == "F";
+
+
+                // ---------------- Grade ----------------
+
+                if (dr["grade_id"] != DBNull.Value)
+                {
+                    cmbGrade.SelectedValue =
+                        dr["grade_id"];
+                }
+                else
+                {
+                    cmbGrade.SelectedIndex = -1;
+                }
+
+
+                // ---------------- Date of Birth ----------------
+
+                if (dr["date_of_birth"] != DBNull.Value)
+                {
+                    dtpDOB.Value =
+                        Convert.ToDateTime(dr["date_of_birth"]);
+                }
+                else
+                {
+                    dtpDOB.Value = DateTime.Now;
+                }
+
+
+                // ---------------- Admission Date ----------------
+
+                if (dr["date_of_admission"] != DBNull.Value)
+                {
+                    dtpAdmission.Value =
+                        Convert.ToDateTime(dr["date_of_admission"]);
+                }
+                else
+                {
+                    dtpAdmission.Value = DateTime.Now;
+                }
+
+
+                // ---------------- House ----------------
+
+                if (dr["house_name"] != DBNull.Value)
+                {
+                    txtHouse.Text =
+                        dr["house_name"].ToString();
+                }
+                else
+                {
+                    txtHouse.Text = "N/A";
+                }
+
+
+                // ---------------- Medium ----------------
+
+                if (dr["medium"] != DBNull.Value)
+                {
+                    cmbMedium.Text =
+                        dr["medium"].ToString();
+                }
+                else
+                {
+                    cmbMedium.Text = "N/A";
+                }
+
+
+                // ---------------- Family ----------------
+
+                if (dr["mobile_number"] != DBNull.Value)
+                {
+                    txtFamily.Text =
+                        dr["mobile_number"].ToString();
+                }
+                else
+                {
+                    txtFamily.Text = "N/A";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void lbl_familyid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UpdateStudent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+    }
+}
