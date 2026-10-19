@@ -1,89 +1,60 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using WinFormsApp1.DAL;
 
-namespace WinFormsApp1
+namespace WinFormsApp1;
+
+public partial class RegisterForm : Form
 {
-    public partial class RegisterForm : Form
+    public RegisterForm()
     {
-        public RegisterForm()
+        InitializeComponent();
+        txtEmail.Visible = label2.Visible = false;
+        txtUsername.MaxLength = 100;
+        txtPassword.UseSystemPasswordChar = txtConfirmPassword.UseSystemPasswordChar = true;
+        label4.Text = "Confirm";
+        lblMessage.Visible = true;
+        lblMessage.AutoSize = false;
+        lblMessage.SetBounds(20, 225, 345, 50);
+        AcceptButton = Registerbtn;
+    }
+    private async void Registerbtn_Click(object sender, EventArgs e)
+    {
+        string username = txtUsername.Text.Trim();
+        string password = txtPassword.Text;
+        lblMessage.ForeColor = Color.Red;
+        if (username.Length < 3 || username.Length > 100)
         {
-            InitializeComponent();
+            lblMessage.Text = "Username must contain 3 to 100 characters.";
+            return;
         }
-
-        private void Registerbtn_Click(object sender, EventArgs e)
+        if (password.Length < 8)
         {
-            try
+            lblMessage.Text = "Password must contain at least 8 characters.";
+            return;
+        }
+        if (password != txtConfirmPassword.Text)
+        {
+            lblMessage.Text = "Passwords do not match.";
+            return;
+        }
+        Registerbtn.Enabled = false;
+        try
+        {
+            bool created = await UserAuth.RegisterAsync(username, password);
+            if (IsDisposed) return;
+            lblMessage.Text = created ? "Registration successful! You can now login." : "Username already exists. Choose another.";
+            lblMessage.ForeColor = created ? Color.Green : Color.Red;
+            if (created)
             {
-                string username = txtUsername.Text.Trim();
-                string email = txtEmail.Text.Trim();
-                string password = txtPassword.Text;
-                string confirmPassword = txtConfirmPassword.Text;
-
-                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || 
-                    string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
-                {
-                    lblMessage.Text = "Please fill all fields.";
-                    lblMessage.ForeColor = System.Drawing.Color.Red;
-                    return;
-                }
-
-                if (username.Length < 3)
-                {
-                    lblMessage.Text = "Username must be at least 3 characters.";
-                    lblMessage.ForeColor = System.Drawing.Color.Red;
-                    return;
-                }
-
-                if (password.Length < 6)
-                {
-                    lblMessage.Text = "Password must be at least 6 characters.";
-                    lblMessage.ForeColor = System.Drawing.Color.Red;
-                    return;
-                }
-
-                if (password != confirmPassword)
-                {
-                    lblMessage.Text = "Passwords do not match.";
-                    lblMessage.ForeColor = System.Drawing.Color.Red;
-                    return;
-                }
-
-                if (!email.Contains("@"))
-                {
-                    lblMessage.Text = "Please enter a valid email.";
-                    lblMessage.ForeColor = System.Drawing.Color.Red;
-                    return;
-                }
-
-                lblMessage.Text = "Registration successful! You can now login.";
-                lblMessage.ForeColor = System.Drawing.Color.Green;
-
-                // Clear fields after successful registration
                 txtUsername.Clear();
-                txtEmail.Clear();
                 txtPassword.Clear();
                 txtConfirmPassword.Clear();
-
-                // Close after 2 seconds
-                Task.Delay(2000).ContinueWith(t => this.Close());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void BackBtn_Click(object sender, EventArgs e)
+        catch (Exception)
         {
-            this.Close();
+            if (!IsDisposed) lblMessage.Text = "Registration failed. Check the database connection and setup.";
         }
+        finally { if (!IsDisposed) Registerbtn.Enabled = true; }
     }
+    private void BackBtn_Click(object sender, EventArgs e) => Close();
 }

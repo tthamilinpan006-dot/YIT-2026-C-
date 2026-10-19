@@ -63,6 +63,7 @@
             label1.Name = "label1";
             label1.Size = new Size(0, 15);
             label1.TabIndex = 2;
+            label1.Visible = false;
             // 
             // label2
             // 
@@ -119,6 +120,7 @@
             lblMessage.Name = "lblMessage";
             lblMessage.Size = new Size(0, 15);
             lblMessage.TabIndex = 7;
+            lblMessage.Visible = false;
             // 
             // LoginForm
             // 

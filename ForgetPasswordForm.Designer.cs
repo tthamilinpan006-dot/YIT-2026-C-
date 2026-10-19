@@ -2,129 +2,78 @@ namespace WinFormsApp1
 {
     partial class ForgetPasswordForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && components != null) components.Dispose();
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             ResetBtn = new Button();
             BackBtn = new Button();
             txtUsername = new TextBox();
-            txtEmail = new TextBox();
+            txtNewPassword = new TextBox();
+            txtConfirmPassword = new TextBox();
             label1 = new Label();
             label2 = new Label();
+            label3 = new Label();
             lblMessage = new Label();
             SuspendLayout();
-            // 
-            // ResetBtn
-            // 
-            ResetBtn.Location = new Point(80, 200);
-            ResetBtn.Name = "ResetBtn";
-            ResetBtn.Size = new Size(100, 39);
-            ResetBtn.TabIndex = 0;
-            ResetBtn.Text = "Reset Password";
-            ResetBtn.UseVisualStyleBackColor = true;
-            ResetBtn.Click += ResetBtn_Click;
-            // 
-            // BackBtn
-            // 
-            BackBtn.Location = new Point(200, 200);
-            BackBtn.Name = "BackBtn";
-            BackBtn.Size = new Size(100, 39);
-            BackBtn.TabIndex = 1;
-            BackBtn.Text = "Back";
-            BackBtn.UseVisualStyleBackColor = true;
-            BackBtn.Click += BackBtn_Click;
-            // 
-            // txtUsername
-            // 
-            txtUsername.Location = new Point(150, 70);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(200, 23);
-            txtUsername.TabIndex = 2;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(150, 120);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(200, 23);
-            txtEmail.TabIndex = 3;
-            // 
-            // label1
-            // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(30, 70);
-            label1.Name = "label1";
-            label1.Size = new Size(94, 21);
-            label1.TabIndex = 4;
+            label1.Location = new Point(24, 38);
             label1.Text = "Username";
-            // 
-            // label2
-            // 
+            txtUsername.Name = "txtUsername";
+            txtUsername.SetBounds(162, 34, 230, 23);
+            txtUsername.MaxLength = 100;
+            txtUsername.TabIndex = 0;
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(30, 120);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 21);
-            label2.TabIndex = 5;
-            label2.Text = "Email";
-            // 
-            // lblMessage
-            // 
-            lblMessage.AutoSize = true;
-            lblMessage.Location = new Point(30, 160);
+            label2.Location = new Point(24, 88);
+            label2.Text = "New password";
+            txtNewPassword.Name = "txtNewPassword";
+            txtNewPassword.SetBounds(162, 84, 230, 23);
+            txtNewPassword.UseSystemPasswordChar = true;
+            txtNewPassword.TabIndex = 1;
+            label3.AutoSize = true;
+            label3.Location = new Point(24, 138);
+            label3.Text = "Confirm password";
+            txtConfirmPassword.Name = "txtConfirmPassword";
+            txtConfirmPassword.SetBounds(162, 134, 230, 23);
+            txtConfirmPassword.UseSystemPasswordChar = true;
+            txtConfirmPassword.TabIndex = 2;
             lblMessage.Name = "lblMessage";
-            lblMessage.Size = new Size(0, 15);
-            lblMessage.TabIndex = 6;
-            // 
-            // ForgetPasswordForm
-            // 
+            lblMessage.SetBounds(24, 178, 368, 48);
+            ResetBtn.Name = "ResetBtn";
+            ResetBtn.Text = "Reset Password";
+            ResetBtn.SetBounds(86, 238, 140, 38);
+            ResetBtn.TabIndex = 3;
+            ResetBtn.Click += ResetBtn_Click;
+            BackBtn.Name = "BackBtn";
+            BackBtn.Text = "Back";
+            BackBtn.SetBounds(242, 238, 100, 38);
+            BackBtn.TabIndex = 4;
+            BackBtn.Click += BackBtn_Click;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(382, 270);
-            Controls.Add(lblMessage);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(txtEmail);
-            Controls.Add(txtUsername);
-            Controls.Add(BackBtn);
-            Controls.Add(ResetBtn);
+            ClientSize = new Size(420, 305);
+            Controls.AddRange(new Control[] { label1, txtUsername, label2, txtNewPassword, label3, txtConfirmPassword, lblMessage, ResetBtn, BackBtn });
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            StartPosition = FormStartPosition.CenterParent;
             Name = "ForgetPasswordForm";
-            Text = "Forget Password";
+            Text = "Reset Password";
             ResumeLayout(false);
             PerformLayout();
         }
-
-        #endregion
-
         private Button ResetBtn;
         private Button BackBtn;
         private TextBox txtUsername;
-        private TextBox txtEmail;
+        private TextBox txtNewPassword;
+        private TextBox txtConfirmPassword;
         private Label label1;
         private Label label2;
+        private Label label3;
         private Label lblMessage;
     }
 }

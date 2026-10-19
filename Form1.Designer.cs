@@ -109,6 +109,7 @@
             lblError01.Name = "lblError01";
             lblError01.Size = new Size(0, 17);
             lblError01.TabIndex = 29;
+            lblError01.Visible = false;
             // 
             // lblError02
             // 
@@ -118,6 +119,7 @@
             lblError02.Name = "lblError02";
             lblError02.Size = new Size(0, 20);
             lblError02.TabIndex = 30;
+            lblError02.Visible = false;
             // 
             // lblError03
             // 
@@ -127,6 +129,7 @@
             lblError03.Name = "lblError03";
             lblError03.Size = new Size(0, 20);
             lblError03.TabIndex = 31;
+            lblError03.Visible = false;
             // 
             // timer1
             // 

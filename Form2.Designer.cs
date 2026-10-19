@@ -367,6 +367,7 @@
             lblfname.Name = "lblfname";
             lblfname.Size = new Size(0, 13);
             lblfname.TabIndex = 59;
+            lblfname.Visible = false;
             // 
             // lbllname
             // 
@@ -377,6 +378,7 @@
             lbllname.Name = "lbllname";
             lbllname.Size = new Size(0, 13);
             lbllname.TabIndex = 60;
+            lbllname.Visible = false;
             // 
             // lbldob
             // 
@@ -387,6 +389,7 @@
             lbldob.Name = "lbldob";
             lbldob.Size = new Size(0, 13);
             lbldob.TabIndex = 61;
+            lbldob.Visible = false;
             // 
             // lbladdress
             // 
@@ -397,6 +400,7 @@
             lbladdress.Name = "lbladdress";
             lbladdress.Size = new Size(0, 13);
             lbladdress.TabIndex = 62;
+            lbladdress.Visible = false;
             // 
             // lbltel
             // 
@@ -407,6 +411,7 @@
             lbltel.Name = "lbltel";
             lbltel.Size = new Size(0, 13);
             lbltel.TabIndex = 63;
+            lbltel.Visible = false;
             // 
             // lblgender
             // 
@@ -417,6 +422,7 @@
             lblgender.Name = "lblgender";
             lblgender.Size = new Size(0, 13);
             lblgender.TabIndex = 64;
+            lblgender.Visible = false;
             // 
             // lblnic
             // 
@@ -427,6 +433,7 @@
             lblnic.Name = "lblnic";
             lblnic.Size = new Size(0, 13);
             lblnic.TabIndex = 65;
+            lblnic.Visible = false;
             // 
             // timer1
             // 

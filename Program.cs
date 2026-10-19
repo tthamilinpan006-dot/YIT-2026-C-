@@ -16,7 +16,7 @@ namespace WinFormsApp1
             //Application.Run(new Form3());
             //Application.Run(new Form4());
             //Application.Run(new databaseconnect());
-            Application.Run(new databaseconnect());
+            Application.Run(new LoginForm());
 
 
 
