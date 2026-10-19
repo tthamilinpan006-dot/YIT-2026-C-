@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormsApp1.DAL;
+using WinFormsApp1.BLL;
 
 namespace WinFormsApp1
 {
@@ -26,9 +26,9 @@ namespace WinFormsApp1
         {
             string gender = rdoMale.Checked ? "M" : "F";
 
-            StudentDal studentDal = new StudentDal();
+            StudentBll studentBll = new StudentBll();
 
-            bool inserted = await studentDal.InsertAsync(
+            bool inserted = await studentBll.InsertAsync(
                 txtAdmissionNo.Text,
                 txtFirstName.Text,
                 txtLastName.Text,
@@ -38,12 +38,17 @@ namespace WinFormsApp1
                 txtBirthNo.Text,
                 txtTel.Text,
                 txtAddress.Text,
-                cmbGrade.SelectedValue.ToString(),
+                cmbGrade.SelectedValue?.ToString() ?? string.Empty,
                 txtHouse.Text,
                 cmbMedium.Text,
                 txtFamily.Text,
                 dtpAdmission.Value
             );
+            if (!string.IsNullOrEmpty(studentBll.ValidationError))
+            {
+                MessageBox.Show(studentBll.ValidationError, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (inserted)
             {
@@ -200,5 +205,13 @@ namespace WinFormsApp1
                 }
             }
         }
+
+        private void txtHouse_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
+
+

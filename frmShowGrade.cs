@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormsApp1.DAL;
+using WinFormsApp1.BLL;
 
 namespace WinFormsApp1
 {
@@ -33,8 +33,8 @@ namespace WinFormsApp1
             {
 
 
-                GradeDAL gradeDAL = new GradeDAL();
-                DataTable dt = await gradeDAL.GetByIdAsync(gradeId);
+                GradeBll gradeBll = new GradeBll();
+                DataTable dt = await gradeBll.GetByIdAsync(gradeId);
                 if (dt.Rows.Count == 0)
                 {
                     MessageBox.Show(
@@ -74,3 +74,4 @@ namespace WinFormsApp1
         }
     }
 }
+

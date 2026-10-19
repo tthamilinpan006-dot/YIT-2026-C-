@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormsApp1.DAL;
+using WinFormsApp1.BLL;
 
 namespace WinFormsApp1
 {
@@ -42,9 +42,9 @@ namespace WinFormsApp1
 
         private async Task LoadStudents()
         {
-            StudentDal studentDal = new StudentDal();
+            StudentBll studentBll = new StudentBll();
 
-            DataTable dt = await studentDal.GetAllAsync();
+            DataTable dt = await studentBll.GetAllAsync();
 
             dcvAllStudent.DataSource = dt;
         }
@@ -57,9 +57,14 @@ namespace WinFormsApp1
 
             if (result == DialogResult.Yes)
             {
-                StudentDal studentDal = new StudentDal();
+                StudentBll studentBll = new StudentBll();
 
-                bool deleted = await studentDal.DeleteAsync(id);
+                bool deleted = await studentBll.DeleteAsync(id);
+            if (!string.IsNullOrEmpty(studentBll.ValidationError))
+            {
+                MessageBox.Show(studentBll.ValidationError, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
                 if (deleted)
                 {
@@ -92,8 +97,8 @@ namespace WinFormsApp1
 
         private async void btnAllStudent_Click(object sender, EventArgs e)
         {
-            StudentDal studentDal = new StudentDal();
-            DataTable dt = await studentDal.GetAllAsync();
+            StudentBll studentBll = new StudentBll();
+            DataTable dt = await studentBll.GetAllAsync();
             dcvAllStudent.DataSource = dt;
         }
 
@@ -187,3 +192,5 @@ namespace WinFormsApp1
         }
     }
 }
+
+

@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormsApp1.DAL;
+using WinFormsApp1.BLL;
 
 namespace WinFormsApp1
 {
@@ -26,9 +26,9 @@ namespace WinFormsApp1
         private async void Frmdbshow_Load(object sender, EventArgs e)
         {
 
-            StudentDal studentDal = new StudentDal();
+            StudentBll studentBll = new StudentBll();
 
-            DataTable dt = await studentDal.GetByIdAsync(this.studentId.ToString());
+            DataTable dt = await studentBll.GetByIdAsync(this.studentId.ToString());
 
             if (dt.Rows.Count == 0)
             {
@@ -143,3 +143,5 @@ namespace WinFormsApp1
 
     }
 }
+
+

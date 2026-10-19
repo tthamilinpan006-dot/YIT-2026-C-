@@ -65,99 +65,105 @@
             // 
             // dtpDOB
             // 
-            dtpDOB.Location = new Point(13, 531);
+            dtpDOB.Location = new Point(11, 398);
+            dtpDOB.Margin = new Padding(3, 2, 3, 2);
             dtpDOB.Name = "dtpDOB";
-            dtpDOB.Size = new Size(262, 27);
+            dtpDOB.Size = new Size(230, 23);
             dtpDOB.TabIndex = 50;
             // 
             // lblDOB
             // 
             lblDOB.AutoSize = true;
-            lblDOB.Location = new Point(7, 499);
+            lblDOB.Location = new Point(6, 374);
             lblDOB.Name = "lblDOB";
-            lblDOB.Size = new Size(94, 20);
+            lblDOB.Size = new Size(73, 15);
             lblDOB.TabIndex = 49;
             lblDOB.Text = "Date of Birth";
             // 
             // lblBirthNO
             // 
             lblBirthNO.AutoSize = true;
-            lblBirthNO.Location = new Point(379, 143);
+            lblBirthNO.Location = new Point(332, 107);
             lblBirthNO.Name = "lblBirthNO";
-            lblBirthNO.Size = new Size(128, 20);
+            lblBirthNO.Size = new Size(102, 15);
             lblBirthNO.TabIndex = 48;
             lblBirthNO.Text = "Birth Certificat No";
             // 
             // txtBirthNo
             // 
-            txtBirthNo.Location = new Point(382, 167);
+            txtBirthNo.Location = new Point(334, 125);
+            txtBirthNo.Margin = new Padding(3, 2, 3, 2);
             txtBirthNo.Name = "txtBirthNo";
-            txtBirthNo.Size = new Size(260, 27);
+            txtBirthNo.Size = new Size(228, 23);
             txtBirthNo.TabIndex = 47;
             // 
             // txtAdmissionNo
             // 
-            txtAdmissionNo.Location = new Point(13, 94);
+            txtAdmissionNo.Location = new Point(11, 70);
+            txtAdmissionNo.Margin = new Padding(3, 2, 3, 2);
             txtAdmissionNo.Name = "txtAdmissionNo";
-            txtAdmissionNo.Size = new Size(262, 27);
+            txtAdmissionNo.Size = new Size(230, 23);
             txtAdmissionNo.TabIndex = 46;
             // 
             // lblAdNo
             // 
             lblAdNo.AutoSize = true;
-            lblAdNo.Location = new Point(5, 71);
+            lblAdNo.Location = new Point(4, 53);
             lblAdNo.Name = "lblAdNo";
-            lblAdNo.Size = new Size(78, 20);
+            lblAdNo.Size = new Size(63, 15);
             lblAdNo.TabIndex = 45;
             lblAdNo.Text = "Admission";
             // 
             // txtTel
             // 
-            txtTel.Location = new Point(382, 240);
+            txtTel.Location = new Point(334, 180);
+            txtTel.Margin = new Padding(3, 2, 3, 2);
             txtTel.Name = "txtTel";
-            txtTel.Size = new Size(260, 27);
+            txtTel.Size = new Size(228, 23);
             txtTel.TabIndex = 44;
             // 
             // txtNIC
             // 
-            txtNIC.Location = new Point(382, 94);
+            txtNIC.Location = new Point(334, 70);
+            txtNIC.Margin = new Padding(3, 2, 3, 2);
             txtNIC.Name = "txtNIC";
-            txtNIC.Size = new Size(260, 27);
+            txtNIC.Size = new Size(228, 23);
             txtNIC.TabIndex = 43;
             // 
             // lblTel
             // 
             lblTel.AutoSize = true;
-            lblTel.Location = new Point(374, 217);
+            lblTel.Location = new Point(327, 163);
             lblTel.Name = "lblTel";
-            lblTel.Size = new Size(70, 20);
+            lblTel.Size = new Size(56, 15);
             lblTel.TabIndex = 42;
             lblTel.Text = "Telphone";
             // 
             // lblNIC
             // 
             lblNIC.AutoSize = true;
-            lblNIC.Location = new Point(379, 71);
+            lblNIC.Location = new Point(332, 53);
             lblNIC.Name = "lblNIC";
-            lblNIC.Size = new Size(33, 20);
+            lblNIC.Size = new Size(27, 15);
             lblNIC.TabIndex = 41;
             lblNIC.Text = "NIC";
             // 
             // lblHouse
             // 
             lblHouse.AutoSize = true;
-            lblHouse.Location = new Point(379, 289);
+            lblHouse.Location = new Point(332, 217);
             lblHouse.Name = "lblHouse";
-            lblHouse.Size = new Size(51, 20);
+            lblHouse.Size = new Size(41, 15);
             lblHouse.TabIndex = 40;
             lblHouse.Text = "House";
             // 
             // rdoFemale
             // 
             rdoFemale.AutoSize = true;
-            rdoFemale.Location = new Point(108, 458);
+            rdoFemale.Location = new Point(94, 344);
+            rdoFemale.Margin = new Padding(3, 2, 3, 2);
             rdoFemale.Name = "rdoFemale";
-            rdoFemale.Size = new Size(78, 24);
+            rdoFemale.Size = new Size(63, 19);
             rdoFemale.TabIndex = 39;
             rdoFemale.TabStop = true;
             rdoFemale.Text = "Female";
@@ -166,9 +172,10 @@
             // rdoMale
             // 
             rdoMale.AutoSize = true;
-            rdoMale.Location = new Point(15, 458);
+            rdoMale.Location = new Point(13, 344);
+            rdoMale.Margin = new Padding(3, 2, 3, 2);
             rdoMale.Name = "rdoMale";
-            rdoMale.Size = new Size(63, 24);
+            rdoMale.Size = new Size(51, 19);
             rdoMale.TabIndex = 38;
             rdoMale.TabStop = true;
             rdoMale.Text = "Male";
@@ -177,146 +184,154 @@
             // cmbGrade
             // 
             cmbGrade.FormattingEnabled = true;
-            cmbGrade.Location = new Point(13, 381);
+            cmbGrade.Location = new Point(11, 286);
+            cmbGrade.Margin = new Padding(3, 2, 3, 2);
             cmbGrade.Name = "cmbGrade";
-            cmbGrade.Size = new Size(262, 28);
+            cmbGrade.Size = new Size(230, 23);
             cmbGrade.TabIndex = 37;
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(13, 312);
+            txtAddress.Location = new Point(11, 234);
+            txtAddress.Margin = new Padding(3, 2, 3, 2);
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(262, 27);
+            txtAddress.Size = new Size(230, 23);
             txtAddress.TabIndex = 36;
             // 
             // txtLastName
             // 
-            txtLastName.Location = new Point(13, 240);
+            txtLastName.Location = new Point(11, 180);
+            txtLastName.Margin = new Padding(3, 2, 3, 2);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(262, 27);
+            txtLastName.Size = new Size(230, 23);
             txtLastName.TabIndex = 35;
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(13, 167);
+            txtFirstName.Location = new Point(11, 125);
+            txtFirstName.Margin = new Padding(3, 2, 3, 2);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(262, 27);
+            txtFirstName.Size = new Size(230, 23);
             txtFirstName.TabIndex = 34;
             // 
             // lblGender
             // 
             lblGender.AutoSize = true;
-            lblGender.Location = new Point(6, 428);
+            lblGender.Location = new Point(5, 321);
             lblGender.Name = "lblGender";
-            lblGender.Size = new Size(57, 20);
+            lblGender.Size = new Size(45, 15);
             lblGender.TabIndex = 33;
             lblGender.Text = "Gender";
             // 
             // lblGrade
             // 
             lblGrade.AutoSize = true;
-            lblGrade.Location = new Point(6, 358);
+            lblGrade.Location = new Point(5, 268);
             lblGrade.Name = "lblGrade";
-            lblGrade.Size = new Size(49, 20);
+            lblGrade.Size = new Size(38, 15);
             lblGrade.TabIndex = 32;
             lblGrade.Text = "Grade";
             // 
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(3, 289);
+            lblAddress.Location = new Point(3, 217);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(62, 20);
+            lblAddress.Size = new Size(49, 15);
             lblAddress.TabIndex = 31;
             lblAddress.Text = "Address";
             // 
             // lblLastName
             // 
             lblLastName.AutoSize = true;
-            lblLastName.Location = new Point(6, 217);
+            lblLastName.Location = new Point(5, 163);
             lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(79, 20);
+            lblLastName.Size = new Size(63, 15);
             lblLastName.TabIndex = 30;
             lblLastName.Text = "Last Name";
             // 
             // lblFirstname
             // 
             lblFirstname.AutoSize = true;
-            lblFirstname.Location = new Point(6, 144);
+            lblFirstname.Location = new Point(5, 108);
             lblFirstname.Name = "lblFirstname";
-            lblFirstname.Size = new Size(80, 20);
+            lblFirstname.Size = new Size(64, 15);
             lblFirstname.TabIndex = 29;
             lblFirstname.Text = "First Name";
             // 
             // dtpAdmission
             // 
-            dtpAdmission.Location = new Point(382, 455);
+            dtpAdmission.Location = new Point(334, 341);
+            dtpAdmission.Margin = new Padding(3, 2, 3, 2);
             dtpAdmission.Name = "dtpAdmission";
-            dtpAdmission.Size = new Size(260, 27);
+            dtpAdmission.Size = new Size(228, 23);
             dtpAdmission.TabIndex = 55;
             // 
             // cmbMedium
             // 
             cmbMedium.FormattingEnabled = true;
             cmbMedium.Items.AddRange(new object[] { "Tamil", "English" });
-            cmbMedium.Location = new Point(382, 381);
+            cmbMedium.Location = new Point(334, 286);
+            cmbMedium.Margin = new Padding(3, 2, 3, 2);
             cmbMedium.Name = "cmbMedium";
-            cmbMedium.Size = new Size(260, 28);
+            cmbMedium.Size = new Size(228, 23);
             cmbMedium.TabIndex = 54;
             // 
             // lblAdmission
             // 
             lblAdmission.AutoSize = true;
-            lblAdmission.Location = new Point(379, 428);
+            lblAdmission.Location = new Point(332, 321);
             lblAdmission.Name = "lblAdmission";
-            lblAdmission.Size = new Size(114, 20);
+            lblAdmission.Size = new Size(90, 15);
             lblAdmission.TabIndex = 53;
             lblAdmission.Text = "Admission Date";
             // 
             // lblMedium
             // 
             lblMedium.AutoSize = true;
-            lblMedium.Location = new Point(377, 358);
+            lblMedium.Location = new Point(330, 268);
             lblMedium.Name = "lblMedium";
-            lblMedium.Size = new Size(64, 20);
+            lblMedium.Size = new Size(52, 15);
             lblMedium.TabIndex = 52;
             lblMedium.Text = "Medium";
             // 
             // lblFamily
             // 
             lblFamily.AutoSize = true;
-            lblFamily.Location = new Point(378, 499);
+            lblFamily.Location = new Point(331, 374);
             lblFamily.Name = "lblFamily";
-            lblFamily.Size = new Size(51, 20);
+            lblFamily.Size = new Size(42, 15);
             lblFamily.TabIndex = 51;
             lblFamily.Text = "Family";
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(0, 0, 192);
+            panel1.BackColor = Color.Red;
             panel1.Controls.Add(lable01);
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(688, 61);
+            panel1.Size = new Size(602, 46);
             panel1.TabIndex = 58;
             // 
             // lable01
             // 
             lable01.AutoSize = true;
-            lable01.BackColor = Color.FromArgb(0, 0, 192);
+            lable01.BackColor = Color.Transparent;
             lable01.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lable01.ForeColor = SystemColors.ButtonHighlight;
-            lable01.Location = new Point(212, 9);
+            lable01.Location = new Point(186, 7);
             lable01.Name = "lable01";
-            lable01.Size = new Size(281, 38);
+            lable01.Size = new Size(221, 30);
             lable01.TabIndex = 0;
             lable01.Text = "Student information ";
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(519, 586);
+            btnCreate.Location = new Point(454, 440);
+            btnCreate.Margin = new Padding(3, 2, 3, 2);
             btnCreate.Name = "btnCreate";
-            btnCreate.Size = new Size(123, 41);
+            btnCreate.Size = new Size(108, 31);
             btnCreate.TabIndex = 59;
             btnCreate.Text = "Create";
             btnCreate.UseVisualStyleBackColor = true;
@@ -324,24 +339,27 @@
             // 
             // txtHouse
             // 
-            txtHouse.Location = new Point(383, 318);
+            txtHouse.Location = new Point(335, 238);
+            txtHouse.Margin = new Padding(3, 2, 3, 2);
             txtHouse.Name = "txtHouse";
-            txtHouse.Size = new Size(259, 27);
+            txtHouse.Size = new Size(227, 23);
             txtHouse.TabIndex = 60;
+            txtHouse.TextChanged += txtHouse_TextChanged;
             // 
             // txtFamily
             // 
-            txtFamily.Location = new Point(383, 531);
+            txtFamily.Location = new Point(335, 398);
+            txtFamily.Margin = new Padding(3, 2, 3, 2);
             txtFamily.Name = "txtFamily";
-            txtFamily.Size = new Size(259, 27);
+            txtFamily.Size = new Size(227, 23);
             txtFamily.TabIndex = 61;
             // 
             // frmStudent
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(683, 639);
+            ClientSize = new Size(598, 479);
             Controls.Add(txtFamily);
             Controls.Add(txtHouse);
             Controls.Add(btnCreate);
@@ -373,6 +391,7 @@
             Controls.Add(lblAddress);
             Controls.Add(lblLastName);
             Controls.Add(lblFirstname);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmStudent";
             Text = "frmshowstudent";
             Load += Frmdbshow_Load;

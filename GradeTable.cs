@@ -1,9 +1,9 @@
-﻿using MySqlConnector;
+using MySqlConnector;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
-using WinFormsApp1.DAL;
+using WinFormsApp1.BLL;
 
 namespace WinFormsApp1
 {
@@ -20,9 +20,9 @@ namespace WinFormsApp1
 
         private async Task LoadGrade()
         {
-            GradeDAL gradeDAL = new GradeDAL();
+            GradeBll gradeBll = new GradeBll();
 
-            DataTable dt =await gradeDAL.GetAll();
+            DataTable dt =await gradeBll.GetAll();
 
             dgvAllGrades.DataSource = dt;
         }
@@ -97,9 +97,14 @@ namespace WinFormsApp1
 
             if (result == DialogResult.Yes)
             {
-                GradeDAL gradeDAL = new GradeDAL();
+                GradeBll gradeBll = new GradeBll();
 
-                bool deleted = await gradeDAL.DeleteAsync(id);
+                bool deleted = await gradeBll.DeleteAsync(id);
+            if (!string.IsNullOrEmpty(gradeBll.ValidationError))
+            {
+                MessageBox.Show(gradeBll.ValidationError, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
                 if (deleted)
                 {
@@ -204,3 +209,4 @@ namespace WinFormsApp1
         }
     }
 }
+

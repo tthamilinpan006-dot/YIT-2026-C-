@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormsApp1.DAL;
+using WinFormsApp1.BLL;
 
 namespace WinFormsApp1
 {
@@ -30,15 +30,20 @@ namespace WinFormsApp1
             string gradeColour = ColorTranslator.ToHtml(
                 btnChooseColour.BackColor);
 
-            GradeDAL gradeDAL = new GradeDAL();
+            GradeBll gradeBll = new GradeBll();
 
-            bool updated = await gradeDAL.UpdateAsync(
+            bool updated = await gradeBll.UpdateAsync(
                 gradeId,
                 txtGradeName.Text,
                 txtGradeGroup.Text,
                 txtGradeOrder.Text,
                 gradeColour
             );
+            if (!string.IsNullOrEmpty(gradeBll.ValidationError))
+            {
+                MessageBox.Show(gradeBll.ValidationError, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (updated)
             {
@@ -53,9 +58,9 @@ namespace WinFormsApp1
         }
         private async void frmLoadGrade()
         {
-            GradeDAL gradeDAL = new GradeDAL();
+            GradeBll gradeBll = new GradeBll();
 
-            DataTable dt = await gradeDAL.GetByIdAsync(gradeId);
+            DataTable dt = await gradeBll.GetByIdAsync(gradeId);
 
             if (dt.Rows.Count > 0)
             {
@@ -130,3 +135,4 @@ namespace WinFormsApp1
         }
     }
 }
+
