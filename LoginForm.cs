@@ -10,7 +10,6 @@ public partial class LoginForm : Form
         txtPassword.UseSystemPasswordChar = true;
         lblMessage.Visible = true;
         lblMessage.AutoSize = false;
-        lblMessage.SetBounds(20, 250, 345, 38);
         AcceptButton = Loginbtn;
     }
 
@@ -35,7 +34,7 @@ public partial class LoginForm : Form
             lblMessage.Text = "Please enter both username and password.";
             return;
         }
-        Loginbtn.Enabled = regbtn.Enabled = false;
+        Loginbtn.Enabled = regbtn.Enabled = forgetbtn.Enabled = false;
         try
         {
             bool valid = await UserAuth.LoginAsync(username, password);
@@ -43,6 +42,13 @@ public partial class LoginForm : Form
             lblMessage.Text = valid ? "Login successful!" : "Invalid username or password.";
             lblMessage.ForeColor = valid ? Color.Green : Color.Red;
             txtPassword.Clear();
+            if (valid)
+            {
+                var mainForm = new databaseconnect();
+                mainForm.FormClosed += (_, _) => Close();
+                mainForm.Show();
+                Hide();
+            }
         }
         catch (Exception)
         {
@@ -50,8 +56,10 @@ public partial class LoginForm : Form
         }
         finally
         {
-            if (!IsDisposed) Loginbtn.Enabled = regbtn.Enabled = true;
+            if (!IsDisposed) Loginbtn.Enabled = regbtn.Enabled = forgetbtn.Enabled = true;
         }
     }
 }
+
+
 

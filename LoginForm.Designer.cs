@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1
+namespace WinFormsApp1
 {
     partial class LoginForm
     {
@@ -37,11 +37,12 @@
             forgetbtn = new Button();
             regbtn = new Button();
             lblMessage = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // Loginbtn
             // 
-            Loginbtn.Location = new Point(112, 291);
+            Loginbtn.Location = new Point(114, 313);
             Loginbtn.Name = "Loginbtn";
             Loginbtn.Size = new Size(120, 39);
             Loginbtn.TabIndex = 0;
@@ -51,7 +52,7 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(151, 95);
+            txtUsername.Location = new Point(151, 109);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(210, 23);
             txtUsername.TabIndex = 1;
@@ -69,7 +70,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(36, 95);
+            label2.Location = new Point(36, 111);
             label2.Name = "label2";
             label2.Size = new Size(94, 21);
             label2.TabIndex = 3;
@@ -79,7 +80,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(36, 148);
+            label3.Location = new Point(36, 175);
             label3.Name = "label3";
             label3.Size = new Size(82, 21);
             label3.TabIndex = 3;
@@ -87,7 +88,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(151, 150);
+            txtPassword.Location = new Point(151, 173);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(210, 23);
             txtPassword.TabIndex = 4;
@@ -95,7 +96,7 @@
             // 
             // forgetbtn
             // 
-            forgetbtn.Location = new Point(208, 217);
+            forgetbtn.Location = new Point(213, 254);
             forgetbtn.Name = "forgetbtn";
             forgetbtn.Size = new Size(119, 23);
             forgetbtn.TabIndex = 5;
@@ -105,7 +106,7 @@
             // 
             // regbtn
             // 
-            regbtn.Location = new Point(61, 217);
+            regbtn.Location = new Point(43, 254);
             regbtn.Name = "regbtn";
             regbtn.Size = new Size(75, 23);
             regbtn.TabIndex = 6;
@@ -115,18 +116,30 @@
             // 
             // lblMessage
             // 
-            lblMessage.AutoSize = true;
-            lblMessage.Location = new Point(101, 254);
+            lblMessage.AutoSize = false;
+            lblMessage.Location = new Point(20, 207);
             lblMessage.Name = "lblMessage";
-            lblMessage.Size = new Size(0, 15);
+            lblMessage.Size = new Size(345, 38);
             lblMessage.TabIndex = 7;
-            lblMessage.Visible = false;
+            lblMessage.Visible = true;
+            // 
+            // label4
+            // 
+            label4.BackColor = Color.Red;
+            label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Honeydew;
+            label4.Location = new Point(-2, -2);
+            label4.Name = "label4";
+            label4.Size = new Size(390, 39);
+            label4.TabIndex = 8;
+            label4.Text = "                     Login Page";
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(382, 407);
+            Controls.Add(label4);
             Controls.Add(lblMessage);
             Controls.Add(regbtn);
             Controls.Add(forgetbtn);
@@ -153,5 +166,6 @@
         private Button forgetbtn;
         private Button regbtn;
         private Label lblMessage;
+        private Label label4;
     }
 }

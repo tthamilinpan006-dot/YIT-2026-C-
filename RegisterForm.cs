@@ -7,7 +7,6 @@ public partial class RegisterForm : Form
     public RegisterForm()
     {
         InitializeComponent();
-        txtEmail.Visible = label2.Visible = false;
         txtUsername.MaxLength = 100;
         txtPassword.UseSystemPasswordChar = txtConfirmPassword.UseSystemPasswordChar = true;
         label4.Text = "Confirm";

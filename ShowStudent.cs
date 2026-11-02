@@ -43,7 +43,7 @@ namespace WinFormsApp1
 
             DataRow dr = dt.Rows[0];
 
-            // Load Student Data
+                                                                                             // Load Student Data
             txtFirstName.Text = dr["first_name"].ToString();
             txtLastName.Text = dr["last_name"].ToString();
             txtAddress.Text = dr["per_address"].ToString();
@@ -52,13 +52,13 @@ namespace WinFormsApp1
             txtTel.Text = dr["tele_number"].ToString();
             txtBirthNo.Text = dr["birth_certificate_number"].ToString();
 
-            // Load Gender
+                                                                                            // Load Gender
             string gender = dr["gender"].ToString();
 
             rdoMale.Checked = gender == "M";
             rdoFemale.Checked = gender == "F";
 
-            // Load Grade
+                                                                                            // Load Grade
             if (dr["grade_name"] != DBNull.Value)
             {
                 txtGrade.Text = dr["grade_name"].ToString();
@@ -68,7 +68,7 @@ namespace WinFormsApp1
                 txtGrade.Text = "N/A";
             }
 
-            // Load Date of Birth
+                                                                                            // Load Date of Birth
             if (dr["date_of_birth"] != DBNull.Value)
             {
                 try
@@ -85,7 +85,7 @@ namespace WinFormsApp1
                 dtpDOB.Value = DateTime.Now;
             }
 
-            // Load Date of Admission
+                                                                                             // Load Date of Admission
             if (dr["date_of_admission"] != DBNull.Value)
             {
                 try
@@ -103,7 +103,7 @@ namespace WinFormsApp1
                 dtpAdmission.Value = DateTime.Now;
             }
 
-            // Load House
+                                                                                             // Load House
             if (dr["house_name"] != DBNull.Value)
             {
                 txtHouse.Text = dr["house_name"].ToString();
@@ -113,7 +113,7 @@ namespace WinFormsApp1
                 txtHouse.Text = "N/A";
             }
 
-            // Load Medium
+                                                                                             // Load Medium
             if (dr["medium"] != DBNull.Value)
             {
                 txtMedium.Text = dr["medium"].ToString();
@@ -123,7 +123,7 @@ namespace WinFormsApp1
                 txtMedium.Text = "N/A";
             }
 
-            // Load Family Mobile
+                                                                                            // Load Family Mobile
             if (dr["family_mobile"] != DBNull.Value)
             {
                 txtFamily.Text = dr["family_mobile"].ToString();
